@@ -1,0 +1,157 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:HS="https://dbpedia.org/ontology/EducationalInstitution#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="https://dbpedia.org/ontology/EducationalInstitution#"/>
+  <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Personne">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Etudiant">
+    <rdfs:subClassOf rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Chercheur">
+    <rdfs:subClassOf rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#EnseignantChercheur">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Chercheur"/>
+      <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Enseignant"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Enseignant">
+    <rdfs:subClassOf rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Formation">
+    <rdfs:subClassOf rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#FormationDe">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#OffreDe"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Formation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#AppartenirA">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#SecomposeDe"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#InscrireA">
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Formation"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Etudiant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#AuProfit">
+    <owl:inverseOf rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#InscrireA"/>
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Etudiant"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Formation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#SecomposeDe">
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Enseigne">
+    <rdfs:subPropertyOf>
+      <owl:SymmetricProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Knows"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Etudiant"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Enseignant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#OffreDe">
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Formation"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Prenom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#HasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Formation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Intitule">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Highschool"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Nom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+  </owl:DatatypeProperty>
+  <owl:SymmetricProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Knows">
+    <rdfs:range rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Etudiant"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Enseignant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#CNE">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Etudiant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#DateNaissance">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#APourIntituleFormation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Enseignant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#Cnss">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Enseignant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="https://dbpedia.org/ontology/EducationalInstitution#CIN">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#Personne"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:InverseFunctionalProperty>
+  <HS:Etudiant rdf:about="https://dbpedia.org/ontology/EducationalInstitution#NourImaneElghazi">
+    <HS:InscrireA>
+      <HS:Formation rdf:about="https://dbpedia.org/ontology/EducationalInstitution#MIOLA">
+        <HS:FormationDe>
+          <HS:Highschool rdf:about="https://dbpedia.org/ontology/EducationalInstitution#ENSIAS">
+            <HS:HasName>https://dbpedia.org/ontology/EducationalInstitution#École Nationale Supérieure d'Informatique et d'Analyse des Systèmes</HS:HasName>
+          </HS:Highschool>
+        </HS:FormationDe>
+        <HS:HasName>Master Internet des Objets : Logiciel et Analytique (MIOLA)</HS:HasName>
+      </HS:Formation>
+    </HS:InscrireA>
+    <HS:AppartenirA rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#ENSIAS"/>
+    <HS:Knows>
+      <HS:EnseignantChercheur rdf:about="https://dbpedia.org/ontology/EducationalInstitution#AhmedZELLOU">
+        <HS:AppartenirA rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#ENSIAS"/>
+        <HS:DateNaissance>1980-08-18</HS:DateNaissance>
+        <HS:CIN>A14785</HS:CIN>
+        <HS:Cnss>AS01B4750</HS:Cnss>
+        <HS:Prenom>Ahmed</HS:Prenom>
+        <HS:Nom>ZELLOU</HS:Nom>
+      </HS:EnseignantChercheur>
+    </HS:Knows>
+    <HS:CNE>1710523808</HS:CNE>
+    <HS:DateNaissance>1994-05-30</HS:DateNaissance>
+    <HS:CIN>A4401</HS:CIN>
+    <HS:Prenom>Nour Imane</HS:Prenom>
+    <HS:Nom>EL GHAZI</HS:Nom>
+  </HS:Etudiant>
+  <HS:Etudiant rdf:about="https://dbpedia.org/ontology/EducationalInstitution#SaadBELEFQIH">
+    <HS:InscrireA rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#MIOLA"/>
+    <HS:AppartenirA rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#ENSIAS"/>
+    <HS:Knows rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#AhmedZELLOU"/>
+    <HS:CNE>1210523811</HS:CNE>
+    <HS:DateNaissance>1994-05-30</HS:DateNaissance>
+    <HS:CIN>A478510</HS:CIN>
+    <HS:Prenom>Saad</HS:Prenom>
+    <HS:Nom>BELEFQIH</HS:Nom>
+  </HS:Etudiant>
+  <HS:Formation rdf:about="https://dbpedia.org/ontology/EducationalInstitution#M3S">
+    <HS:FormationDe rdf:resource="https://dbpedia.org/ontology/EducationalInstitution#ENSIAS"/>
+    <HS:HasName>Master de Recherche en Sécurité Systèmes et Services (M3S)</HS:HasName>
+  </HS:Formation>
+</rdf:RDF>
